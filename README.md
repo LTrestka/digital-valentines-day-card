@@ -6,7 +6,19 @@
 Displays a message for your valentine, with custom images in the shape of a heart.
 Moving your mouse over the heart shaped images causes them to move.
 
-## Files and Folders:
+## Requirements
+* Requires python 3 to run generate.py
+  * You can modify the contents of data.js manually if you don't have python installed, but that would be tedious work.
+
+## Setup
+To setup locally, just run the following commands in your terminal
+```bash
+$ git clone https://github.com/LTrestka/digital-valentines-day-card.git
+cd digital-valentines-day-card
+```
+Then follow the [instructions](#instructions) below.
+
+## Content:
 * images folder
   - Place the images you want to use for the card
   > Note: does not support .heic files on firefox, or edge. I have not tested on safari, or other browsers. 
@@ -18,7 +30,16 @@ Moving your mouse over the heart shaped images causes them to move.
   - This is the card itself.
 * generate.py
   - a simple python file that takes your images, and your message, and populates data.js, which valentine.html loads to get your images and message.
-  - takes a boolean argument (scatter: default=False)
+    
+    ```python
+    usage: generate.py [-h] [--scatter-images] [--scatter-message]
+  
+    options:
+      -h, --help         show this help message and exit
+      --scatter-images   Randomizes image order (default: false)
+      --scatter-message  Each line in message.txt appears in random order (default: false)
+    ```
+  
 * data.json
   - valentine.html has some javascript functions that use this data. You can modify it using the templated structure, but it's automatically populated and overwritten if you run generate.py
 
@@ -27,7 +48,7 @@ Moving your mouse over the heart shaped images causes them to move.
 1. Add a message for your valentine in message.txt
 2. Add the images you want to use in your card
    > Again, for best results, try to have 1 image for each line in your message
-3. run `python generate.py`
+3. run `python generate.py` within the digital-valentines-day-card directory
 4. Open valentine.html in your browser.
 
 
